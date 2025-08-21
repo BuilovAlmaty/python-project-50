@@ -1,0 +1,29 @@
+[project]
+name = "hexlet-code"
+version = "0.1.1"
+description = "CLI утилита для сравнения JSON/YAML файлов"
+authors = [{ name = "Alexey Builov" }]
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+dependencies = [
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"

@@ -1,0 +1,6 @@
+.venv
+main.py
+.python-version
+*.cast
+__pycache__/
+.idea/
