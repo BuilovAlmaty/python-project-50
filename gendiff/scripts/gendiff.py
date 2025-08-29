@@ -4,14 +4,19 @@ from functools import reduce
 
 __version__ = "0.1.1"
 
+
 def generate_diff(file_path1, file_path2):
     with open(file_path1, encoding="utf-8") as f:
         dict1 = json.load(f)
     with open(file_path2, encoding="utf-8") as f:
         dict2 = json.load(f)
 
-    total = reduce(lambda acc, t: acc + f"{t[0]} {t[1]}: {t[2]}\n", generate_diff_between_dicts(dict1, dict2), "")
+    total = reduce(
+        lambda acc, t: acc + f"{t[0]} {t[1]}: {t[2]}\n",
+        generate_diff_between_dicts(dict1, dict2), ""
+    )
     return total.rstrip()
+
 
 def generate_diff_between_dicts(dict1, dict2):
     keys = sorted(set(dict1.keys() | dict2.keys()))
@@ -27,6 +32,7 @@ def generate_diff_between_dicts(dict1, dict2):
             yield ('+', k, dict2[k])
         else:
             yield ('-', k, dict1[k])
+
 
 def main():
     parser = argparse.ArgumentParser(

@@ -1,11 +1,8 @@
 #Makefile
-.PHONY: install reinstall
+.PHONY: install test lint check build
 
 install:
-	uv tool uninstall gendiff || true
-	uv tool install -e .
-install:
-	uv tool install -e .
+	uv sync --all-extras
 
 gendiff: # запуск проекта
 	uv run gendiff
@@ -16,8 +13,14 @@ build: # сборка пакета
 package-install: # установка пакета
 	uv tool install dist/*.whl
 
+test:
+	uv run pytest
+
 lint:
-	uv run ruff check .
+	ruff check .
+
+check:
+	test lint
 
 lint-fix:
 	uv run ruff check . --fix
