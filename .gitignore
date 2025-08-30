@@ -4,3 +4,5 @@ main.py
 *.cast
 __pycache__/
 .idea/
+.pytest_cache/
+.ruff_cache/
