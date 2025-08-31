@@ -1,3 +1,17 @@
+Metadata-Version: 2.4
+Name: hexlet-code
+Version: 0.1.2
+Summary: CLI утилита для сравнения JSON/YAML файлов
+Author: Alexey Builov
+License: MIT
+Requires-Python: >=3.12
+Requires-Dist: pyyaml
+Provides-Extra: dev
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Description-Content-Type: text/markdown
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/BuilovAlmaty/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/BuilovAlmaty/python-project-50/actions)
 
@@ -8,8 +22,5 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BuilovAlmaty_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BuilovAlmaty_python-project-50)
 
-### Сompares two linear json files:
+### Сompares two lineal json files:
 [![asciicast](https://asciinema.org/a/t9YtNF9l4BHbS8TgSSL0R91dv.svg)](https://asciinema.org/a/t9YtNF9l4BHbS8TgSSL0R91dv)
-
-### Сompares two linear yaml files:
-[![asciicast](https://asciinema.org/a/E82ouyn85sVGgHAmYSMTTavmM.svg)](https://asciinema.org/a/E82ouyn85sVGgHAmYSMTTavmM)

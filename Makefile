@@ -20,8 +20,7 @@ test:
 lint:
 	ruff check .
 
-check:
-	test lint
+check: test lint
 
 lint-fix:
 	uv run ruff check . --fix
