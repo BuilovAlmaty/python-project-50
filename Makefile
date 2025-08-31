@@ -2,7 +2,7 @@
 .PHONY: install test lint check build
 
 install:
-	uv sync --all-extras
+	uv pip install -e .[dev]
 
 gendiff: # запуск проекта
 	uv run gendiff
