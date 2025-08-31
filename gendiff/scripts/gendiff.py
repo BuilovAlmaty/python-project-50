@@ -5,11 +5,7 @@ from functools import reduce
 __version__ = "0.1.1"
 
 
-def generate_diff(file_path1, file_path2):
-    with open(file_path1, encoding="utf-8") as f:
-        dict1 = json.load(f)
-    with open(file_path2, encoding="utf-8") as f:
-        dict2 = json.load(f)
+def generate_diff(dict1, dict2):
 
     total = reduce(
         lambda acc, t: acc + f"{t[0]} {t[1]}: {t[2]}\n",
@@ -54,9 +50,19 @@ def main():
     )
     args = parser.parse_args()
 
-    diff = generate_diff(args.first_file, args.second_file)
+    try:
+        with open(args.first_file, encoding="utf-8") as f:
+            dict1 = json.load(f)
+        with open(args.second_file, encoding="utf-8") as f:
+            dict2 = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f'Json file read error: {e}')
+        return
 
-    print(f"{{\n{diff}\n}}")
+    diff = generate_diff(dict1, dict2)
+
+    if diff:
+        print(f"{{\n{diff}\n}}")
 
 
 if __name__ == "__main__":

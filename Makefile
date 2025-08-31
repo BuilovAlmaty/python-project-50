@@ -14,7 +14,7 @@ package-install: # установка пакета
 	uv tool install dist/*.whl
 
 test:
-	uv run pytest
+	uv run pytest -s -v
 
 lint:
 	ruff check .

@@ -6,5 +6,7 @@
 
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=BuilovAlmaty_python-project-50&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=BuilovAlmaty_python-project-50)
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BuilovAlmaty_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BuilovAlmaty_python-project-50)
+
 ### Сompares two lineal json files:
 [![asciicast](https://asciinema.org/a/t9YtNF9l4BHbS8TgSSL0R91dv.svg)](https://asciinema.org/a/t9YtNF9l4BHbS8TgSSL0R91dv)
