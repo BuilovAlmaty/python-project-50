@@ -1,8 +1,9 @@
-import pytest
 import json
-import yaml
-from pathlib import Path
 from enum import Enum
+from pathlib import Path
+
+import pytest
+import yaml
 
 DATA_DIRECTORY = Path(__file__).parent / "data"
 

@@ -1,7 +1,9 @@
 import argparse
 import json
-import yaml
 from pathlib import Path
+
+import yaml
+
 from gendiff.parsing_engine import generate_linear_diff
 
 __version__ = "0.1.2"
