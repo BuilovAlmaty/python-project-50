@@ -22,7 +22,8 @@ jobs:
         run: |
           pip install uv
           make install
-
+          pip install pytest pytest-cov
+          
       - name: Run tests with coverage
         run: |
           pytest --cov=gendiff/scripts --cov-report=xml
