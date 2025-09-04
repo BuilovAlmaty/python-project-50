@@ -1,10 +1,8 @@
 import argparse
 import json
 from pathlib import Path
-
 import yaml
-
-from gendiff.parsing_engine import generate_linear_diff
+from gendiff.parsing_engine import generate_diff
 
 __version__ = "0.1.2"
 
@@ -23,6 +21,8 @@ def load_file(path):
         raise ValueError(f"JSON file read error ({path}): {e}")
     except yaml.YAMLError as e:
         raise ValueError(f"YAML file read error ({path}): {e}")
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"File not found ({e.filename})")
 
 
 def load_files(first_path, second_path):
@@ -40,14 +40,12 @@ def main():
     parser.add_argument("second_file", help="Path to the second file")
     parser.add_argument(
         "-f", "--format",
-        default="plain",
+        default="stylish",
         choices=[
-            "plain",
-            "json",
-            "yml",
-            "yaml"
+            "stylish",
+            "linear"
         ],
-        help="Set format of output (default: plain)"
+        help="Set format of output (default: stylish)"
     )
     parser.add_argument(
         "-v", "--version",
@@ -57,10 +55,10 @@ def main():
     args = parser.parse_args()
 
     dict1, dict2 = load_files(args.first_file, args.second_file)
-    diff = generate_linear_diff(dict1, dict2)
+    diff = generate_diff(dict1, dict2, args.format)
 
     if diff:
-        print(f"{{\n{diff}\n}}")
+        print(diff)
 
 
 if __name__ == "__main__":

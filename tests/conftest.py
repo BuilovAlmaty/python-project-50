@@ -1,7 +1,6 @@
 import json
 from enum import Enum
 from pathlib import Path
-
 import pytest
 import yaml
 
@@ -21,6 +20,7 @@ def _load_file(file_name):
             return yaml.safe_load(f)
         else:
             raise ValueError("Unsupported file format")
+
 
 
 @pytest.fixture(scope='session')

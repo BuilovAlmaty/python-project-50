@@ -8,8 +8,11 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BuilovAlmaty_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BuilovAlmaty_python-project-50)
 
-### Сompares two linear json files:
+### Сompare two linear json files:
 [![asciicast](https://asciinema.org/a/t9YtNF9l4BHbS8TgSSL0R91dv.svg)](https://asciinema.org/a/t9YtNF9l4BHbS8TgSSL0R91dv)
 
-### Сompares two linear yaml files:
+### Сompare two linear yaml files:
 [![asciicast](https://asciinema.org/a/E82ouyn85sVGgHAmYSMTTavmM.svg)](https://asciinema.org/a/E82ouyn85sVGgHAmYSMTTavmM)
+
+### Compare two hierarchical and linear files:
+[![asciicast](https://asciinema.org/a/YE8SC2pOwvsiD6Ubtvev2Fefj.svg)](https://asciinema.org/a/YE8SC2pOwvsiD6Ubtvev2Fefj)
