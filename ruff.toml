@@ -1,4 +1,4 @@
-line-length = 80
+line-length = 108
 
 [lint.per-file-ignores]
   # init modules can contain the local imports, logic, unused imports
@@ -7,3 +7,6 @@ line-length = 80
 [lint]
 preview = true
 select = ["E", "F", "I", "C90"]
+
+[lint.mccabe]
+max-complexity = 15

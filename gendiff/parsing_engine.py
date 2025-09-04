@@ -88,7 +88,7 @@ def formatter(tree_as_list):
 
         # output "}" sign
         while stack and i[2] <= stack[-1]:
-           output_text += f"{space_sign * (stack.pop() + 2)}}}\n"
+            output_text += f"{space_sign * (stack.pop() + 2)}}}\n"
 
         if i[1] == "parent":
             output_text += f"{space_sign * i[2]}{i[3]} {i[0]}: {{\n"

@@ -1,5 +1,6 @@
 from enum import Enum
 from pathlib import Path
+
 from gendiff.parsing_engine import generate_diff
 from gendiff.scripts.gendiff import load_file
 

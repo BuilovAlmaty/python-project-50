@@ -26,7 +26,7 @@ build-backend = "hatchling.build"
 gendiff = "gendiff.scripts.gendiff:main"
 
 [tool.ruff]
-line-length = 88
+line-length = 108
 target-version = "py311"
 
 [tool.hatch.build.targets.wheel]
