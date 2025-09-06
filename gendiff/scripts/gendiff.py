@@ -1,10 +1,10 @@
 import argparse
 import json
 from pathlib import Path
-
 import yaml
+from gendiff.formatter import plain, linear, stylish
+from gendiff import get_diff
 
-from gendiff.parsing_engine import generate_diff
 
 __version__ = "0.1.2"
 
@@ -33,6 +33,15 @@ def load_files(first_path, second_path):
     return dict1, dict2
 
 
+def generate_diff(dict1, dict2, format_name='stylish'):
+    if format_name == "stylish":
+        return stylish(get_diff(dict1, dict2))
+    elif format_name == "linear":
+        return linear(dict1, dict2)
+    elif format_name == "plain":
+        return plain(get_diff(dict1, dict2))
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="gendiff",
@@ -45,7 +54,8 @@ def main():
         default="stylish",
         choices=[
             "stylish",
-            "linear"
+            "linear",
+            "plain"
         ],
         help="Set format of output (default: stylish)"
     )

@@ -1,5 +1,6 @@
-from gendiff.scripts.gendiff import load_file
+from gendiff.scripts.gendiff import load_file, generate_diff
 
 __all__ = (
-    "load_file"
+    "load_file",
+    "generate_diff"
 )

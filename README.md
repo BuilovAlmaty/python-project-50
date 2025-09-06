@@ -14,5 +14,8 @@
 ### Сompare two linear yaml files:
 [![asciicast](https://asciinema.org/a/E82ouyn85sVGgHAmYSMTTavmM.svg)](https://asciinema.org/a/E82ouyn85sVGgHAmYSMTTavmM)
 
-### Compare two hierarchical and linear files:
+### Compare two hierarchical and linear files (stylish):
 [![asciicast](https://asciinema.org/a/YE8SC2pOwvsiD6Ubtvev2Fefj.svg)](https://asciinema.org/a/YE8SC2pOwvsiD6Ubtvev2Fefj)
+
+### Compare two hierarchical and linear files (stylish):plain
+[![asciicast](https://asciinema.org/a/ntXw2wLKp5Syz3NrW7mfNvCvh.svg)](https://asciinema.org/a/ntXw2wLKp5Syz3NrW7mfNvCvh)
