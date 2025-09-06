@@ -4,7 +4,7 @@ def plain(diff):
         for node in diff:
             key = node["key"]
             status = node["status"]
-            full_name = "Property \'"+f"{parent_name}.{key}\'"[1:]
+            full_name = "Property \'" + f"{parent_name}.{key}\'"[1:]
             if status == "nested":
                 lines.extend(_plain_formatter(node["children"], f"{parent_name}.{key}"))
             elif status == "added":

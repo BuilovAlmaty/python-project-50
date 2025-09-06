@@ -1,7 +1,7 @@
 from enum import Enum
 from pathlib import Path
 
-from gendiff.scripts.gendiff import load_file, generate_diff
+from gendiff.scripts.gendiff import generate_diff, load_file
 
 
 class FileNames(Enum):
@@ -24,10 +24,7 @@ class FileNames(Enum):
 def test_empty_dictionaries(test_data):
     first_dict_json = test_data[FileNames.JSON_INPUT_1.value]
     second_dict_json = test_data[FileNames.JSON_INPUT_2.value]
-
-    first_dict_yaml = test_data[FileNames.YAML_INPUT_1.value]
     second_dict_yaml = test_data[FileNames.YAML_INPUT_2.value]
-
     first_dict_rec_yaml = test_data[FileNames.YAML_INPUT_REC_1.value]
 
     empty_expected_1 = test_data[FileNames.EMPTY_EXPECTED_1.value].strip()

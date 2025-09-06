@@ -1,10 +1,11 @@
 import argparse
 import json
 from pathlib import Path
-import yaml
-from gendiff.formatter import plain, linear, stylish
-from gendiff import get_diff
 
+import yaml
+
+from gendiff import get_diff
+from gendiff.formatter import linear, plain, stylish
 
 __version__ = "0.1.2"
 
