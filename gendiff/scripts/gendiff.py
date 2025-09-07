@@ -41,6 +41,8 @@ def generate_diff(dict1, dict2, format_name='stylish'):
         return linear(dict1, dict2)
     elif format_name == "plain":
         return plain(get_diff(dict1, dict2))
+    elif format_name == "json":
+        return json.dumps(get_diff(dict1, dict2))
 
 
 def main():
@@ -56,7 +58,8 @@ def main():
         choices=[
             "stylish",
             "linear",
-            "plain"
+            "plain",
+            "json"
         ],
         help="Set format of output (default: stylish)"
     )

@@ -17,5 +17,8 @@
 ### Compare two hierarchical and linear files (stylish):
 [![asciicast](https://asciinema.org/a/YE8SC2pOwvsiD6Ubtvev2Fefj.svg)](https://asciinema.org/a/YE8SC2pOwvsiD6Ubtvev2Fefj)
 
-### Compare two hierarchical and linear files (stylish):plain
+### Compare two hierarchical files (plain):
 [![asciicast](https://asciinema.org/a/ntXw2wLKp5Syz3NrW7mfNvCvh.svg)](https://asciinema.org/a/ntXw2wLKp5Syz3NrW7mfNvCvh)
+
+### Compare two hierarchical files (json):
+[![asciicast](https://asciinema.org/a/s4VWEXlDzeOiowkUfcNN9EbvI.svg)](https://asciinema.org/a/s4VWEXlDzeOiowkUfcNN9EbvI)

@@ -12,9 +12,11 @@ class FileNames(Enum):
     EMPTY_EXPECTED_1 = "gendiff_expected_file1_empty.txt"
     EMPTY_EXPECTED_2 = "gendiff_expected_file2_empty.txt"
     EMPTY_EXPECTED_PLAIN_2 = "gendiff_expected_plain_file2_empty.txt"
+    EMPTY_EXPECTED_JSON_2 = "gendiff_expected_json_file2_empty.txt"
     EXPECTED = "gendiff_expected.txt"
     EXPECTED_REC = "gendiff_rec_expected.txt"
     EXPECTED_PLAIN = "gendiff_expected_plain.txt"
+    EXPECTED_JSON = "gendiff_rec_expected_json.txt"
     JSON_INPUT_REC_1 = "gendiff_rec_input1.json"
     JSON_INPUT_REC_2 = "gendiff_rec_input2.json"
     YAML_INPUT_REC_1 = "gendiff_rec_input1.yaml"
@@ -30,12 +32,14 @@ def test_empty_dictionaries(test_data):
     empty_expected_1 = test_data[FileNames.EMPTY_EXPECTED_1.value].strip()
     empty_expected_2 = test_data[FileNames.EMPTY_EXPECTED_2.value].strip()
     empty_expected_3 = test_data[FileNames.EMPTY_EXPECTED_PLAIN_2.value].strip()
+    empty_expected_4 = test_data[FileNames.EMPTY_EXPECTED_JSON_2.value].strip()
 
     assert generate_diff({}, {}, "linear") == '{\n\n}'
     assert generate_diff({}, second_dict_json, "linear") == empty_expected_1
     assert generate_diff(first_dict_json, {}, "linear") == empty_expected_2
     assert generate_diff({}, second_dict_yaml) == empty_expected_1
     assert generate_diff(first_dict_rec_yaml, {}, "plain") == empty_expected_3
+    assert generate_diff(first_dict_rec_yaml, {}, "json") == empty_expected_4
 
 
 def test_recursive_expected_right_result(test_data):
@@ -47,10 +51,12 @@ def test_recursive_expected_right_result(test_data):
 
     expected = test_data[FileNames.EXPECTED_REC.value].strip()
     expected_plain = test_data[FileNames.EXPECTED_PLAIN.value].strip()
+    expected_json = test_data[FileNames.EXPECTED_JSON.value].strip()
 
     assert generate_diff(first_dict_json, second_dict_json) == expected
     assert generate_diff(first_dict_yaml, second_dict_yaml) == expected
     assert generate_diff(first_dict_json, second_dict_yaml, "plain") == expected_plain
+    assert generate_diff(first_dict_json, second_dict_yaml, "json") == expected_json
 
 
 def test_expected_right_result(test_data):
