@@ -34,15 +34,22 @@ def load_files(first_path, second_path):
     return dict1, dict2
 
 
-def generate_diff(dict1, dict2, format_name='stylish'):
-    if format_name == "stylish":
+def generate_diff(file_path1, file_path2, format_name="stylish"):
+    dict1, dict2 = load_files(file_path1, file_path2)
+    return generate_diff_dicts(dict1, dict2, format_name)
+
+
+def generate_diff_dicts(dict1, dict2, format="stylish"):
+    if format == "stylish":
         return stylish(get_diff(dict1, dict2))
-    elif format_name == "linear":
+    elif format == "linear":
         return linear(dict1, dict2)
-    elif format_name == "plain":
+    elif format == "plain":
         return plain(get_diff(dict1, dict2))
-    elif format_name == "json":
+    elif format == "json":
         return json.dumps(get_diff(dict1, dict2))
+    else:
+        raise ValueError(f"Unknown format: {format}")
 
 
 def main():
@@ -70,8 +77,7 @@ def main():
     )
     args = parser.parse_args()
 
-    dict1, dict2 = load_files(args.first_file, args.second_file)
-    diff = generate_diff(dict1, dict2, args.format)
+    diff = generate_diff(args.first_file, args.second_file, args.format)
 
     if diff:
         print(diff)

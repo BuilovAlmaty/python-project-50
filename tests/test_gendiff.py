@@ -1,7 +1,7 @@
 from enum import Enum
 from pathlib import Path
 
-from gendiff.scripts.gendiff import generate_diff, load_file
+from gendiff.scripts.gendiff import generate_diff_dicts, load_file
 
 
 class FileNames(Enum):
@@ -34,12 +34,12 @@ def test_empty_dictionaries(test_data):
     empty_expected_3 = test_data[FileNames.EMPTY_EXPECTED_PLAIN_2.value].strip()
     empty_expected_4 = test_data[FileNames.EMPTY_EXPECTED_JSON_2.value].strip()
 
-    assert generate_diff({}, {}, "linear") == '{\n\n}'
-    assert generate_diff({}, second_dict_json, "linear") == empty_expected_1
-    assert generate_diff(first_dict_json, {}, "linear") == empty_expected_2
-    assert generate_diff({}, second_dict_yaml) == empty_expected_1
-    assert generate_diff(first_dict_rec_yaml, {}, "plain") == empty_expected_3
-    assert generate_diff(first_dict_rec_yaml, {}, "json") == empty_expected_4
+    assert generate_diff_dicts({}, {}, "linear") == '{\n\n}'
+    assert generate_diff_dicts({}, second_dict_json, "linear") == empty_expected_1
+    assert generate_diff_dicts(first_dict_json, {}, "linear") == empty_expected_2
+    assert generate_diff_dicts({}, second_dict_yaml) == empty_expected_1
+    assert generate_diff_dicts(first_dict_rec_yaml, {}, "plain") == empty_expected_3
+    assert generate_diff_dicts(first_dict_rec_yaml, {}, "json") == empty_expected_4
 
 
 def test_recursive_expected_right_result(test_data):
@@ -53,10 +53,10 @@ def test_recursive_expected_right_result(test_data):
     expected_plain = test_data[FileNames.EXPECTED_PLAIN.value].strip()
     expected_json = test_data[FileNames.EXPECTED_JSON.value].strip()
 
-    assert generate_diff(first_dict_json, second_dict_json) == expected
-    assert generate_diff(first_dict_yaml, second_dict_yaml) == expected
-    assert generate_diff(first_dict_json, second_dict_yaml, "plain") == expected_plain
-    assert generate_diff(first_dict_json, second_dict_yaml, "json") == expected_json
+    assert generate_diff_dicts(first_dict_json, second_dict_json) == expected
+    assert generate_diff_dicts(first_dict_yaml, second_dict_yaml) == expected
+    assert generate_diff_dicts(first_dict_json, second_dict_yaml, "plain") == expected_plain
+    assert generate_diff_dicts(first_dict_json, second_dict_yaml, "json") == expected_json
 
 
 def test_expected_right_result(test_data):
@@ -67,8 +67,8 @@ def test_expected_right_result(test_data):
     second_dict_yaml = test_data[FileNames.YAML_INPUT_2.value]
     expected = test_data[FileNames.EXPECTED.value].strip()
 
-    assert generate_diff(first_dict_json, second_dict_json, "linear") == expected
-    assert generate_diff(first_dict_yaml, second_dict_yaml, "linear") == expected
+    assert generate_diff_dicts(first_dict_json, second_dict_json, "linear") == expected
+    assert generate_diff_dicts(first_dict_yaml, second_dict_yaml, "linear") == expected
 
 
 def test_load_file(test_data):
