@@ -9,7 +9,9 @@ def stylish(diff):
 
             if status == "nested":
                 children = _stylish_formatter(node["children"], depth + 1)
-                lines.append(f"{indent}    {key}: {{\n{children}\n{indent}    }}")
+                lines.append(
+                    f"{indent}    {key}: {{\n{children}\n{indent}    }}"
+                )
 
             elif status == "unchanged":
                 val = _format_value(node["value"], depth + 1)

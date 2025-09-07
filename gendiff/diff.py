@@ -10,9 +10,18 @@ def get_diff(dict1, dict2):
                     "children": get_diff(dict1[k], dict2[k])
                 })
             elif dict1[k] == dict2[k]:
-                diff.append({"key": k, "status": "unchanged", "value": dict1[k]})
+                diff.append(
+                    {"key": k,
+                     "status": "unchanged",
+                     "value": dict1[k]}
+                )
             else:
-                diff.append({"key": k, "status": "updated", "old_value": dict1[k], "new_value": dict2[k]})
+                diff.append(
+                    {"key": k,
+                     "status": "updated",
+                     "old_value": dict1[k],
+                     "new_value": dict2[k]}
+                )
         elif k in dict1:
             diff.append({"key": k, "status": "removed", "value": dict1[k]})
         else:
