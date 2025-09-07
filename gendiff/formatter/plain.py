@@ -33,4 +33,6 @@ def _format_value(value):
         return "false"
     if value is None:
         return "null"
+    if isinstance(value, int):
+        return value
     return f"\'{value}\'"
