@@ -4,7 +4,8 @@ from pathlib import Path
 
 import yaml
 
-from gendiff.formatter import get_diff, linear, plain, stylish
+from gendiff.formatter import linear, plain, stylish
+from gendiff.scripts import get_diff
 
 __version__ = "0.1.2"
 
